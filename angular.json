@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "simple-todo-ngrx"
+    }
+  },
+  "defaultProject": "simple-todo-ngrx",
+  "cli": {
+    "analytics": false
+  }
 }
