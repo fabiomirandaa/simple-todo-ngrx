@@ -1,6 +1,6 @@
 <ul>
-  <li class="box">
-    <p class="item">lorem ipsum</p>
+  <li class="box" *ngFor="let item of (todos | async)">
+    <p class="item">{{item?.title}}</p>
     <button class="button is-danger">Remover</button>
   </li>
 </ul>
