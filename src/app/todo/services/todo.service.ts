@@ -12,4 +12,8 @@ export class TodoService {
   addTodo(title: string) {
     return this.http.post('/api/todos', { title });
   }
+
+  deleteTodo(id: number) {
+    return this.http.delete(`/api/todos/${id}`);
+  }
 }

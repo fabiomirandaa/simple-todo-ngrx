@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { getTodos, TodoActionTypes, addTodo } from './todo.actions';
+import { getTodos, TodoActionTypes, addTodo, deleteTodo } from './todo.actions';
 import { of } from 'rxjs';
 import { switchMap, catchError, map, mergeMap } from 'rxjs/operators';
 import { TodoService } from '../services/todo.service';
 
 @Injectable()
 export class TodoEffect {
+
   loadTodos$ = createEffect(() =>
     this.actions$.pipe(
       ofType(getTodos),
@@ -20,7 +21,6 @@ export class TodoEffect {
     this.actions$.pipe(
       ofType(addTodo),
       switchMap((action) => {
-        console.log(action);
         return this.todoService.addTodo(action.title)
         .pipe(
           mergeMap(() => {
@@ -30,6 +30,20 @@ export class TodoEffect {
       })
     )
   );
+
+  deleteTodo$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(deleteTodo),
+    switchMap((action) => {
+      return this.todoService.deleteTodo(action.id)
+      .pipe(
+        mergeMap(() => {
+          return this.loadAllTodos();
+        })
+      );
+    })
+  )
+);
 
   constructor(private actions$: Actions, private todoService: TodoService) {}
 

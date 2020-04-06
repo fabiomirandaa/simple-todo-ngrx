@@ -1,6 +1,6 @@
 <ul>
   <li class="box" *ngFor="let item of (todos | async)">
     <p class="item">{{item?.title}}</p>
-    <button class="button is-danger">Remover</button>
+    <button class="button is-danger" (click)="deleteTodo(item.id)">Remover</button>
   </li>
 </ul>
