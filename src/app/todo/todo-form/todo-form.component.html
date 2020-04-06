@@ -1,10 +1,12 @@
-<div class="field is-grouped">
-  <p class="control is-expanded">
-    <input class="input" type="text" placeholder="Add TODO">
-  </p>
-  <p class="control">
-    <a class="button is-info">
-      Add
-    </a>
-  </p>
-</div>
+<form [formGroup]="formTodo" (ngSubmit)="onSubmit()">
+  <div class="field is-grouped">
+    <p class="control is-expanded">
+      <input class="input" type="text" formControlName="title" placeholder="Add TODO">
+    </p>
+    <p class="control">
+      <button class="button is-info" type="submit">
+        Add
+      </button>
+    </p>
+  </div>
+</form>

@@ -19,7 +19,7 @@ export const loadTodos = createAction(
 
 export const addTodo = createAction(
   TodoActionTypes.Add,
-  props<{ name: string }>()
+  props<{ title: string }>()
 );
 
 export const deleteTodo = createAction(
