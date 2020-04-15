@@ -1,27 +1,38 @@
 # SimpleTodoNgrx
+Projeto desenvolvido para servir de estudo para o conceito de Effects. É um WebApp de Todo-list muito simplificado.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+Esse projeto foi gerado pelo [Angular CLI](https://github.com/angular/angular-cli) 9.1.0.
 
-## Development server
+## Resumo do conceito
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Para entendimento deste resumo, você precisa entender os conceitos básicos do Redux. Aviso dado, vamos ao resumo.
 
-## Code scaffolding
+Basicamente os Effects é a forma que temos para garantir o tratamento de efeitos colaterais ao dispararmos Actions. Não podemos esquecer que no Redux, os Reducers devem ser feitos com funções puras. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Então quando criamos um Effect, estamos garantindo que Actions que necessitem de consultas externas,por exemplo, tenham também um tratamento de possíveis erros e possam direcionar o disparo de Actions específicas para momentos de erro.
 
-## Build
+O Exemplo deste projeto, é o Effect de loadTodos. Vejam:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```typescript
+  loadTodos$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(getTodos),
+      switchMap(() => {
+        return this.loadAllTodos();
+      })
+    )
+  );
 
-## Running unit tests
+    private loadAllTodos() {
+    return this.todoService.getTodos()
+    .pipe(
+      map((todos) => {
+        return { type: TodoActionTypes.LoadTodos, todos };
+      }),
+      catchError((error) => of({ type: TodoActionTypes.Error, message: error }))
+    );
+  }
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Como é possível ver, temos um efeito que monitora a ação de `GetTodos`. Nesse efeito, temos ali no método genérico de carregamento de Todos o tratamento de erro, fazendo com que seja chamada a Action específica de erro caso ocorra algum problema com a chamada HTTP.
