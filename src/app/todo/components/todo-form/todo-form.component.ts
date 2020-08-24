@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { addTodo } from '../store/todo.actions';
+import { addTodo } from '../../store/todo.actions';
 import { Store } from '@ngrx/store';
 
 @Component({

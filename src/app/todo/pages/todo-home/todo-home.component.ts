@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { getTodos, deleteTodo } from '../store/todo.actions';
+import { getTodos, deleteTodo } from '../../store/todo.actions';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectTodos } from '../store/todo.reducers';
-import { Todo } from '../models/todo.interface';
+import { selectTodos } from '../../store/todo.reducers';
+import { Todo } from '../../models/todo.interface';
 
 @Component({
   selector: 'app-todo-home',
