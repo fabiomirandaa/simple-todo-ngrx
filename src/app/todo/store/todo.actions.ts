@@ -1,20 +1,19 @@
 import { createAction, props } from '@ngrx/store';
 import { Todo } from '../models/todo.interface';
-import { Observable } from 'rxjs';
 
 export enum TodoActionTypes {
-  GetAll = '[TODO] get all todos',
-  LoadTodos = '[TODO] load todos',
-  Add = '[TODO] add',
-  Delete = '[TODO] delete',
-  Error = '[TODO] error',
+  GetAll = '[TODO Page] Get all todos',
+  LoadTodos = '[TODO API] Load todos',
+  Add = '[TODO Page] Add',
+  Delete = '[TODO Page] Delete',
+  Error = '[TODO API] Error',
 }
 
 export const getTodos = createAction(TodoActionTypes.GetAll);
 
 export const loadTodos = createAction(
   TodoActionTypes.LoadTodos,
-  props<{ todos: Observable<Todo[]> }>()
+  props<{ todos: Todo[] }>()
 );
 
 export const addTodo = createAction(

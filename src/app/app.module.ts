@@ -24,7 +24,7 @@ import { TodoReducer } from './todo/store/todo.reducers';
     HttpClientModule,
     TodoModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({ todo: TodoReducer }),
+    StoreModule.forRoot({ todoState: TodoReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
