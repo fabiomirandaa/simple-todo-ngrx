@@ -21,7 +21,7 @@ export const TodoReducer = createReducer(
   }))
 );
 
-// SELECTS
+// SELECTORS
 export const selectTodoState = (state) => state.todoState;
 export const selectTodos = createSelector(selectTodoState, (state) => {
   return state.todos;
