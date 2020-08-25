@@ -30,3 +30,7 @@ export const selectTodos = createSelector(selectTodoState, (state) => {
 export const selectError = createSelector(selectTodoState, (state) => {
   return state.error;
 });
+
+export const selectTodosCount = createSelector(selectTodoState, (state) => {
+  return state.todos.length;
+});

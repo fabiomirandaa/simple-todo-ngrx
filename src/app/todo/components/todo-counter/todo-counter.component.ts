@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { selectTodosCount } from '../../store/todo.reducers';
 
 @Component({
   selector: 'app-todo-counter',
@@ -7,10 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoCounterComponent implements OnInit {
   // TODO: Implementar select do total de TODO
+  totalCount$: Observable<number>;
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
+    this.totalCount$ =  this.store.select(selectTodosCount);
   }
 
 }
