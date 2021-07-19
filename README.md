@@ -1,7 +1,7 @@
 # SimpleTodoNgrx
 Projeto desenvolvido para servir de estudo para o conceito de Effects. É um WebApp de Todo-list muito simplificado.
 
-Esse projeto foi gerado pelo [Angular CLI](https://github.com/angular/angular-cli) 9.1.0.
+Esse projeto foi gerado pelo [Angular CLI](https://github.com/angular/angular-cli). Se encontra na versão 12.1 do Angular.
 
 ## Resumo do conceito
 
