@@ -15,23 +15,23 @@ import { TodoEffect } from './todo/store/todo.effects';
 import { TodoReducer } from './todo/store/todo.reducers';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    TodoModule,
-    BrowserAnimationsModule,
-    StoreModule.forRoot({ todoState: TodoReducer }),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production,
-    }),
-    EffectsModule.forRoot([TodoEffect]),
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        TodoModule,
+        BrowserAnimationsModule,
+        StoreModule.forRoot({ todoState: TodoReducer }),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production,
+        }),
+        EffectsModule.forRoot([TodoEffect]),
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

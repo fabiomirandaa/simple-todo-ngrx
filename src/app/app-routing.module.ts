@@ -4,14 +4,14 @@ import { TodoHomeComponent } from './todo/pages/todo-home/todo-home.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: TodoHomeComponent
-  }
+    {
+        path: '',
+        component: TodoHomeComponent
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

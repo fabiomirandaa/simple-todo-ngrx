@@ -8,29 +8,23 @@ export interface TodoState {
 }
 
 export const initialState: TodoState = {
-  todos: [],
-  error: '',
+    todos: [],
+    error: '',
 };
 
 export const TodoReducer = createReducer(
-  initialState,
-  on(loadTodos, (state, action) => ({ ...state, todos: action.todos })),
-  on(errorTodo, (state, action) => ({
-    ...state,
-    error: action.message,
-  }))
+    initialState,
+    on(loadTodos, (state, action) => ({ ...state, todos: action.todos })),
+    on(errorTodo, (state, action) => ({
+        ...state,
+        error: action.message,
+    }))
 );
 
 // SELECTORS
 export const selectTodoState = (state) => state.todoState;
-export const selectTodos = createSelector(selectTodoState, (state) => {
-  return state.todos;
-});
+export const selectTodos = createSelector(selectTodoState, (state) => state.todos);
 
-export const selectError = createSelector(selectTodoState, (state) => {
-  return state.error;
-});
+export const selectError = createSelector(selectTodoState, (state) => state.error);
 
-export const selectTodosCount = createSelector(selectTodoState, (state) => {
-  return state.todos.length;
-});
+export const selectTodosCount = createSelector(selectTodoState, (state) => state.todos.length);

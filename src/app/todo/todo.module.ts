@@ -9,12 +9,12 @@ import { TodoCounterComponent } from './components/todo-counter/todo-counter.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    TodoFormComponent,
-    TodoListComponent,
-    TodoHomeComponent,
-    TodoCounterComponent,
-  ],
-  imports: [CommonModule, TodoRoutingModule, FormsModule, ReactiveFormsModule],
+    declarations: [
+        TodoFormComponent,
+        TodoListComponent,
+        TodoHomeComponent,
+        TodoCounterComponent,
+    ],
+    imports: [CommonModule, TodoRoutingModule, FormsModule, ReactiveFormsModule],
 })
 export class TodoModule {}

@@ -9,51 +9,39 @@ import { TodoService } from '../services/todo.service';
 export class TodoEffect {
 
   loadTodos$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(getTodos),
-      switchMap(() => {
-        return this.loadAllTodos();
-      })
-    )
+      this.actions$.pipe(
+          ofType(getTodos),
+          switchMap(() => this.loadAllTodos())
+      )
   );
 
   addTodo$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(addTodo),
-      switchMap((action) => {
-        return this.todoService.addTodo(action.title)
-        .pipe(
-          mergeMap(() => {
-            return this.loadAllTodos();
-          })
-        );
-      })
-    )
+      this.actions$.pipe(
+          ofType(addTodo),
+          switchMap((action) => this.todoService.addTodo(action.title)
+              .pipe(
+                  mergeMap(() => this.loadAllTodos())
+              ))
+      )
   );
 
   deleteTodo$ = createEffect(() =>
-  this.actions$.pipe(
-    ofType(deleteTodo),
-    switchMap((action) => {
-      return this.todoService.deleteTodo(action.id)
-      .pipe(
-        mergeMap(() => {
-          return this.loadAllTodos();
-        })
-      );
-    })
-  )
-);
+      this.actions$.pipe(
+          ofType(deleteTodo),
+          switchMap((action) => this.todoService.deleteTodo(action.id)
+              .pipe(
+                  mergeMap(() => this.loadAllTodos())
+              ))
+      )
+  );
 
   constructor(private actions$: Actions, private todoService: TodoService) {}
 
   private loadAllTodos() {
-    return this.todoService.getTodos()
-    .pipe(
-      map((todos) => {
-        return { type: TodoActionTypes.LoadTodos, todos };
-      }),
-      catchError((error) => of({ type: TodoActionTypes.Error, message: error }))
-    );
+      return this.todoService.getTodos()
+          .pipe(
+              map((todos) => ({ type: TodoActionTypes.LoadTodos, todos })),
+              catchError((error) => of({ type: TodoActionTypes.Error, message: error }))
+          );
   }
 }

@@ -2,9 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-todo-list',
-  templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss'],
+    selector: 'app-todo-list',
+    templateUrl: './todo-list.component.html',
+    styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent implements OnInit {
   @Input() todos: Observable<any>;
@@ -15,6 +15,6 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {}
 
   deleteTodo(id: number) {
-    this.todoSelected.emit(id);
+      this.todoSelected.emit(id);
   }
 }
