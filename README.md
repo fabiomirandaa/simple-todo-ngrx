@@ -3,6 +3,9 @@ Projeto desenvolvido para servir de estudo para o conceito de Effects. É um Web
 
 Esse projeto foi gerado pelo [Angular CLI](https://github.com/angular/angular-cli). Se encontra na versão 12.1 do Angular.
 
+### Como rodar o projeto
+Com node 12+ instalado, rodar o comando `npm install` e após finalizar a instalação, rodar o comando `npm run start`
+
 ## Resumo do conceito
 
 Para entendimento deste resumo, você precisa entender os conceitos básicos do Redux. Aviso dado, vamos ao resumo.
