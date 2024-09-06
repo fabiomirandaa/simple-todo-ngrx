@@ -25,7 +25,7 @@ bootstrapApplication(AppComponent, {
         importProvidersFrom(BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, TodoModule, StoreModule.forRoot({ todoState: TodoReducer }), StoreDevtoolsModule.instrument({
             maxAge: 25,
             logOnly: environment.production,
-        }), EffectsModule.forRoot([TodoEffect])),
+        connectInZone: true}), EffectsModule.forRoot([TodoEffect])),
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations(),
     ]

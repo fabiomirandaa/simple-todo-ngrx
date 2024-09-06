@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "simple-todo-ngrx:build"
+            "buildTarget": "simple-todo-ngrx:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "simple-todo-ngrx:build:production"
+              "buildTarget": "simple-todo-ngrx:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "simple-todo-ngrx:build"
+            "buildTarget": "simple-todo-ngrx:build"
           }
         },
         "test": {
