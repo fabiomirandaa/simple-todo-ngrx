@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { addTodo } from '../../store/todo.actions';
 import { Store } from '@ngrx/store';
 
@@ -9,8 +9,8 @@ import { Store } from '@ngrx/store';
     styleUrls: ['./todo-form.component.scss'],
 })
 export class TodoFormComponent implements OnInit {
-  formTodo = new FormGroup({
-      title: new FormControl(''),
+  formTodo = new UntypedFormGroup({
+      title: new UntypedFormControl(''),
   });
 
   constructor(private store: Store) {}
