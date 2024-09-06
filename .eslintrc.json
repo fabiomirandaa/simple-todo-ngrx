@@ -43,7 +43,10 @@
         "no-shadow": "error",
         "no-unused-expressions": "error",
         "no-use-before-define": "off",
-        "quotes": ["error", "single"],
+        "quotes": [
+          "error",
+          "single"
+        ],
         "semi": "error"
       }
     },

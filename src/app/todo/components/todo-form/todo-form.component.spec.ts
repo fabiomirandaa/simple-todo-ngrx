@@ -8,8 +8,8 @@ describe('TodoFormComponent', () => {
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            declarations: [ TodoFormComponent ]
-        })
+    imports: [TodoFormComponent]
+})
             .compileComponents();
     }));
 
